@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mjh.dao.LearnDao">
+
+	<select id="queryList" parameterType="java.util.HashMap" resultType="com.mjh.bean.LearnResouce">
+		select username,truename,rolename from user
+		 LIMIT #{startNo},#{endNo};
+	</select>
+
+	<select id="total" resultType="java.lang.Integer">
+		SELECT COUNT(0) FROM user
+	</select>
+
+	<select id="login" resultType="java.util.Map">
+		select * from zk_register where ftelephone=#{username} and fpassword=#{password}
+	</select>
+</mapper>
